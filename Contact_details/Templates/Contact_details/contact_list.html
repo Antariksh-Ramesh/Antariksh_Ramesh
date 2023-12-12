@@ -9,10 +9,12 @@
     
     <ul>
         {% for contact in contacts %}
-            <li>{{ contact.name }} - {{ contact.email }}</li>
+            <li>{{ contact.first_name }} {{ contact.last_name }} - {{ contact.email }}</li>
+        {% empty %}
+            <li>No contacts available</li>
         {% endfor %}
     </ul>
-
+    
     <!-- Add a link to create a new contact -->
     <a href="{% url 'contact_create' %}">Create a new contact</a>
 </body>

@@ -10,12 +10,7 @@
     <!-- Your contact creation form goes here -->
     <form method="post" action="{% url 'contact_create' %}">
         {% csrf_token %}
-        <label for="name">Name:</label>
-        <input type="text" name="name" required>
-        <br>
-        <label for="email">Email:</label>
-        <input type="email" name="email" required>
-        <br>
+        {{ form.as_p }}
         <button type="submit">Create Contact</button>
     </form>
 
@@ -23,4 +18,3 @@
     <a href="{% url 'contact_list' %}">Back to Contact List</a>
 </body>
 </html>
-

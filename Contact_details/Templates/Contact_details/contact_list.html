@@ -4,26 +4,106 @@
 <head>
     <meta charset="UTF-8">
     <title>Contact List</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        h1 {
+            color: #3498db;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+            width: 400px;
+        }
+
+        li {
+            background-color: #fff;
+            margin: 10px 0;
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        a {
+            color: #3498db;
+            margin-right: 10px;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .empty-message {
+            color: #777;
+        }
+
+        .create-link {
+            display: block;
+            margin-top: 20px;
+            color: #2ecc71;
+            text-decoration: none;
+        }
+
+        .create-link:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            text-align: center;
+            padding: 10px;
+            background-color: #3498db;
+            color: #fff;
+        }
+    </style>
 </head>
 <body>
-    <h1>Contact List</h1>
-    
-    <ul>
-        {% for contact in contacts %}
-            <li>
-                {{ contact.first_name }} {{ contact.last_name }} -- {{ contact.email }}
-                <a href="{% url 'contact_update' pk=contact.pk %}">Update</a>
-                <a href="{% url 'contact_delete' pk=contact.pk %}">Delete</a>
-                <a href="{% url 'contact_detail' pk=contact.pk %}">View Details</a>
-            </li>
-        {% empty %}
-            <li>No contacts available</li>
-        {% endfor %}
-    </ul>
-    
-    <!-- Add a link to create a new contact -->
-    <a href="{% url 'contact_create' %}">Create a new contact</a>
+    <div>
+        <h1>Contact List</h1>
+        
+        {% if contacts %}
+            <ul>
+                {% for contact in contacts %}
+                    <li>
+                        {{ contact.first_name }} {{ contact.last_name }} - {{ contact.email }}
+                        <a href="{% url 'contact_update' pk=contact.pk %}">Update</a>
+                        <a href="{% url 'contact_delete' pk=contact.pk %}">Delete</a>
+                        <a href="{% url 'contact_detail' pk=contact.pk %}">View Details</a>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p class="empty-message">No contacts available</p>
+        {% endif %}
+        
+        <!-- Add a link to create a new contact -->
+        <a href="{% url 'contact_create' %}" class="create-link">Create a new contact</a>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        &copy; 2023 Created by Antariksh Ramesh
+    </footer>
 </body>
 </html>
+
+
+
 
 

@@ -30,3 +30,7 @@ def contact_delete(request, pk):
         contact.delete()
         return redirect('contact_list')
     return render(request, 'Contact_details/contact_delete.html', {'contact': contact})
+
+def contact_detail(request, pk):
+    contact = get_object_or_404(Contact, pk=pk)
+    return render(request, 'Contact_details/contact_detail.html', {'contact': contact})

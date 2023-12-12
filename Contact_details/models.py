@@ -3,9 +3,9 @@ from django.db import models
 
 class Contact(models.Model):
     first_name = models.CharField(max_length=50)
-    last_name = models.CharField(max_length=50)
+    last_name = models.CharField(max_length=50, unique=True)
     email = models.EmailField(unique=True)  # Add unique constraint for email
-    phone_number = models.CharField(max_length=15)
+    phone_number = models.CharField(max_length=10)
 
     class Meta:
         app_label = 'Contact_details'

@@ -1,0 +1,18 @@
+<!-- templates/Contact_details/contact_detail.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Contact Detail</title>
+</head>
+<body>
+    <h1>Contact Detail</h1>
+    
+    <p>Name: {{ contact.first_name }} {{ contact.last_name }}</p>
+    <p>Email: {{ contact.email }}</p>
+    <p>Phone Number: {{ contact.phone_number }}</p>
+
+    <!-- Add a link to go back to the contact list -->
+    <a href="{% url 'contact_list' %}">Back to Contact List</a>
+</body>
+</html>

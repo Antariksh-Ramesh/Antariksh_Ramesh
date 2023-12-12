@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Delete Contact</title>
+</head>
+<body>
+    <h1>Delete Contact</h1>
+    
+    <p>Are you sure you want to delete the contact "{{ contact.name }}"?</p>
+    
+    <!-- Your contact deletion confirmation form goes here -->
+    <form method="post" action="{% url 'contact_delete' pk=contact.pk %}">
+        {% csrf_token %}
+        <button type="submit">Yes, Delete</button>
+    </form>
+
+    <!-- Add a link to go back to the contact list -->
+    <a href="{% url 'contact_list' %}">Cancel and Back to Contact List</a>
+</body>
+</html>

@@ -68,6 +68,7 @@ TEMPLATES = [
     },
 ]
 
+
 WSGI_APPLICATION = 'Antariksh_Ramesh.wsgi.application'
 
 

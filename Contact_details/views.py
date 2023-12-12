@@ -18,13 +18,15 @@ def contact_create(request):
 
 def contact_update(request, pk):
     contact = get_object_or_404(Contact, pk=pk)
-    form = ContactForm(request.POST, instance=contact) if request.method == 'POST' else ContactForm(instance=contact)
+    form = ContactForm(request.POST or None, instance=contact)
     if request.method == 'POST' and form.is_valid():
         form.save()
         return redirect('contact_list')
-    return render(request, 'Contact_details/contact_form.html', {'form': form})
+    return render(request, 'Contact_details/contact_update.html', {'form': form, 'contact': contact})
 
 def contact_delete(request, pk):
     contact = get_object_or_404(Contact, pk=pk)
-    contact.delete()
-    return redirect('contact_list')
+    if request.method == 'POST':
+        contact.delete()
+        return redirect('contact_list')
+    return render(request, 'Contact_details/contact_delete.html', {'contact': contact})

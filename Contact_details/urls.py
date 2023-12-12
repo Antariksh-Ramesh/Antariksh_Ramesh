@@ -2,7 +2,7 @@
 from django.contrib import admin
 from django.urls import path, include
 from django.views.generic import RedirectView
-from .views import contact_list, contact_create, contact_update, contact_delete
+from .views import contact_list, contact_create, contact_update, contact_delete, contact_detail
 from Contact_details import views
 
 urlpatterns = [

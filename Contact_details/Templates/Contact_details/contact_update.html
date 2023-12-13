@@ -93,14 +93,14 @@
 <body>
     <h1>Update Contact</h1>
     
-    <!-- Your contact update form goes here -->
+    
     <form method="post" action="{% url 'contact_update' pk=contact.pk %}">
         {% csrf_token %}
         {{ form.as_p }}
         <button type="submit">Update Contact</button>
     </form>
 
-    <!-- Add a link to go back to the contact list -->
+    
     <a href="{% url 'contact_list' %}">Back to Contact List</a>
 
     <!-- Footer -->

@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import Contact
 from .forms import ContactForm
-# In one of your views, for testing purposes
+
 from django.urls import get_resolver
 
 

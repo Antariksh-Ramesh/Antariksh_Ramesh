@@ -1,8 +1,9 @@
+<!-- templates/Contact_details/contact_list.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Contact Management</title>
+    <title>Contact List</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -46,12 +47,6 @@
             flex: 1;
         }
 
-        .contact-time {
-            color: #777;
-            font-size: 12px;
-            margin-top: 5px;
-        }
-
         .actions {
             display: flex;
             gap: 10px;
@@ -83,11 +78,11 @@
             color: #fff;
             text-decoration: none;
             border-radius: 5px;
-            border: 2px solid #2980b9; 
+            border: 2px solid #2980b9; /* Border color */
         }
 
         .create-link:hover {
-            background-color: #2980b9; 
+            background-color: #2980b9; /* Darker shade of blue on hover */
             text-decoration: underline;
         }
 
@@ -103,7 +98,7 @@
     </style>
 </head>
 <body>
-    <header>Contact Management</header>
+    <header>Contact List</header>
     
     <div>
         {% if contacts %}
@@ -112,7 +107,6 @@
                     <li>
                         <div class="contact-info">
                             {{ contact.first_name }} {{ contact.last_name }} - {{ contact.email }}
-                            <div class="contact-time">Created at: {{ contact.created_at|date:"F j, Y H:i" }}</div>
                         </div>
                         <div class="actions">
                             <a href="{% url 'contact_update' pk=contact.pk %}">Update</a>
@@ -126,6 +120,7 @@
             <p class="empty-message">No contacts available</p>
         {% endif %}
         
+        <!-- Add a link to create a new contact -->
         <div class="create-link-container">
             <a href="{% url 'contact_create' %}" class="create-link">Create a new contact</a>
         </div>
@@ -137,5 +132,4 @@
     </footer>
 </body>
 </html>
-
 

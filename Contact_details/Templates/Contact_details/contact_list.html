@@ -26,7 +26,7 @@
         ul {
             list-style-type: none;
             padding: 0;
-            width: 400px;
+            width: 600px;
         }
 
         li {
@@ -35,12 +35,24 @@
             padding: 15px;
             border-radius: 5px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .contact-info {
+            flex: 1;
+        }
+
+        .actions {
+            display: flex;
+            gap: 10px;
         }
 
         a {
             color: #3498db;
-            margin-right: 10px;
             text-decoration: none;
+            margin-right: 10px;
         }
 
         a:hover {
@@ -81,10 +93,14 @@
             <ul>
                 {% for contact in contacts %}
                     <li>
-                        {{ contact.first_name }} {{ contact.last_name }} - {{ contact.email }}
-                        <a href="{% url 'contact_update' pk=contact.pk %}">Update</a>
-                        <a href="{% url 'contact_delete' pk=contact.pk %}">Delete</a>
-                        <a href="{% url 'contact_detail' pk=contact.pk %}">View Details</a>
+                        <div class="contact-info">
+                            {{ contact.first_name }} {{ contact.last_name }} - {{ contact.email }}
+                        </div>
+                        <div class="actions">
+                            <a href="{% url 'contact_update' pk=contact.pk %}">Update</a>
+                            <a href="{% url 'contact_delete' pk=contact.pk %}">Delete</a>
+                            <a href="{% url 'contact_detail' pk=contact.pk %}">View Details</a>
+                        </div>
                     </li>
                 {% endfor %}
             </ul>
@@ -102,8 +118,4 @@
     </footer>
 </body>
 </html>
-
-
-
-
 

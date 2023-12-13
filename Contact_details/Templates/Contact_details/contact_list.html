@@ -1,9 +1,10 @@
-<!-- templates/Contact_details/contact_list.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Contact List</title>
+    <title>Contact Management</title>
+    <!-- Add Bootstrap CDN link -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -26,25 +27,29 @@
             margin-bottom: 20px;
         }
 
-        ul {
-            list-style-type: none;
-            padding: 0;
-            width: 600px;
+        table {
+            width: 80%; /* Use 80% of the container width */
+            margin: 20px 0;
+            border-collapse: collapse;
         }
 
-        li {
-            background-color: #fff;
-            margin: 10px 0;
+        th, td {
             padding: 15px;
-            border-radius: 5px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            text-align: left;
+            border: 2px solid #333; /* Darker border color */
         }
 
-        .contact-info {
-            flex: 1;
+        th {
+            background-color: #333;
+            color: #fff;
+        }
+
+        tr:nth-child(odd) {
+            background-color: #f9f9f9; /* Alternate shade for odd rows */
+        }
+
+        tr:nth-child(even) {
+            background-color: #e0e0e0; /* Alternate shade for even rows */
         }
 
         .actions {
@@ -52,13 +57,13 @@
             gap: 10px;
         }
 
-        a {
-            color: #3498db;
+        .actions a {
             text-decoration: none;
             margin-right: 10px;
+            color: black; /* Black font color for actions */
         }
 
-        a:hover {
+        .actions a:hover {
             text-decoration: underline;
         }
 
@@ -98,38 +103,60 @@
     </style>
 </head>
 <body>
-    <header>Contact List</header>
+    <header class="bg-primary text-white">Contact Management</header>
     
-    <div>
+    <div class="container">
         {% if contacts %}
-            <ul>
-                {% for contact in contacts %}
-                    <li>
-                        <div class="contact-info">
-                            {{ contact.first_name }} {{ contact.last_name }} - {{ contact.email }}
-                        </div>
-                        <div class="actions">
-                            <a href="{% url 'contact_update' pk=contact.pk %}">Update</a>
-                            <a href="{% url 'contact_delete' pk=contact.pk %}">Delete</a>
-                            <a href="{% url 'contact_detail' pk=contact.pk %}">&#8505;</a>
-                        </div>
-                    </li>
-                {% endfor %}
-            </ul>
+            <table class="table table-bordered">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Email ID</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for contact in contacts %}
+                        <tr>
+                            <td>{{ contact.first_name }}</td>
+                            <td>{{ contact.last_name }}</td>
+                            <td>{{ contact.email }}</td>
+                            <td class="actions">
+                                <a href="{% url 'contact_update' pk=contact.pk %}" class="btn btn-info btn-update">Update</a>
+                                <a href="{% url 'contact_delete' pk=contact.pk %}" class="btn btn-danger btn-delete">Delete</a>
+                                <a href="{% url 'contact_detail' pk=contact.pk %}" class="btn btn-secondary">&#8505;</a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
         {% else %}
             <p class="empty-message">No contacts available</p>
         {% endif %}
         
         <!-- Add a link to create a new contact -->
         <div class="create-link-container">
-            <a href="{% url 'contact_create' %}" class="create-link">Create a new contact</a>
+            <a href="{% url 'contact_create' %}" class="btn btn-success">Create a new contact</a>
         </div>
     </div>
 
+    <!-- Add Bootstrap JS and Popper.js CDN links -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
     <!-- Footer -->
-    <footer>
+    <footer class="bg-primary text-white">
         &copy; 2023 Created by Antariksh Ramesh
     </footer>
 </body>
 </html>
+
+
+
+
+
+
+
 

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Contact Management</title>
-    <!-- Add Bootstrap CDN link -->
+    
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <style>
         body {
@@ -28,7 +28,7 @@
         }
 
         table {
-            width: 80%; /* Use 80% of the container width */
+            width: 80%; 
             margin: 20px 0;
             border-collapse: collapse;
         }
@@ -36,7 +36,7 @@
         th, td {
             padding: 15px;
             text-align: left;
-            border: 2px solid #333; /* Darker border color */
+            border: 2px solid #333; 
         }
 
         th {
@@ -45,11 +45,11 @@
         }
 
         tr:nth-child(odd) {
-            background-color: #f9f9f9; /* Alternate shade for odd rows */
+            background-color: #f9f9f9; 
         }
 
         tr:nth-child(even) {
-            background-color: #e0e0e0; /* Alternate shade for even rows */
+            background-color: #e0e0e0; 
         }
 
         .actions {
@@ -60,7 +60,7 @@
         .actions a {
             text-decoration: none;
             margin-right: 10px;
-            color: black; /* Black font color for actions */
+            color: black; 
         }
 
         .actions a:hover {
@@ -79,15 +79,15 @@
 
         .create-link {
             padding: 10px;
-            background-color: #3498db; /* Blue color */
+            background-color: #3498db; 
             color: #fff;
             text-decoration: none;
             border-radius: 5px;
-            border: 2px solid #2980b9; /* Border color */
+            border: 2px solid #2980b9; 
         }
 
         .create-link:hover {
-            background-color: #2980b9; /* Darker shade of blue on hover */
+            background-color: #2980b9; 
             text-decoration: underline;
         }
 
@@ -135,13 +135,12 @@
             <p class="empty-message">No contacts available</p>
         {% endif %}
         
-        <!-- Add a link to create a new contact -->
+        
         <div class="create-link-container">
             <a href="{% url 'contact_create' %}" class="btn btn-success">Create a new contact</a>
         </div>
     </div>
 
-    <!-- Add Bootstrap JS and Popper.js CDN links -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>

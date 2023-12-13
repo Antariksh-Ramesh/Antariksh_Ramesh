@@ -64,16 +64,22 @@
             background-color: #2183b4;
         }
 
-        a {
-            color: #3498db;
-            text-decoration: none;
-            display: block;
+        .back-link-container {
             margin-top: 10px;
             text-align: center;
         }
 
-        a:hover {
-            text-decoration: underline;
+        .back-link {
+            color: #fff;
+            text-decoration: none;
+            display: inline-block;
+            background-color: #3498db;
+            padding: 10px 20px;
+            border-radius: 5px;
+        }
+
+        .back-link:hover {
+            background-color: #2183b4;
         }
 
         footer {
@@ -98,7 +104,9 @@
     </form>
 
     <!-- Add a link to go back to the contact list -->
-    <a href="{% url 'contact_list' %}">Back to Contact List</a>
+    <div class="back-link-container">
+        <a href="{% url 'contact_list' %}" class="back-link">Back to Contact List</a>
+    </div>
 
     <!-- Footer -->
     <footer>
@@ -106,3 +114,4 @@
     </footer>
 </body>
 </html>
+

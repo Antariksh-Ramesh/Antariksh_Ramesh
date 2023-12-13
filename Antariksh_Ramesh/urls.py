@@ -8,6 +8,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', RedirectView.as_view(url='contacts/', permanent=False)),
     path('', include('Contact_details.urls')),
-    #path('contacts/', include('contacts.urls'))
 ]
 

@@ -2,7 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Contact Detail</title>
+    <!-- Add Bootstrap CDN link -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -49,6 +52,7 @@
 
         .back-link:hover {
             background-color: #2980b9;
+            text-decoration: none;
         }
 
         footer {
@@ -63,23 +67,25 @@
     </style>
 </head>
 <body>
-    <h1>Contact Detail</h1>
+    <h1 class="display-4">Contact Detail</h1>
     
     <div class="contact-info">
-        <p><strong>Name:</strong> {{ contact.first_name }} {{ contact.last_name }}</p>
-        <p><strong>Email:</strong> {{ contact.email }}</p>
-        <p><strong>Phone Number:</strong> {{ contact.phone_number }}</p>
+        <p class="lead"><strong>Name:</strong> {{ contact.first_name }} {{ contact.last_name }}</p>
+        <p class="lead"><strong>Email:</strong> {{ contact.email }}</p>
+        <p class="lead"><strong>Phone Number:</strong> {{ contact.phone_number }}</p>
     </div>
 
-    <a href="{% url 'contact_list' %}" class="back-link">Back to Contact List</a>
+    <a href="{% url 'contact_list' %}" class="btn btn-primary back-link">Back to Contact List</a>
+
+    <!-- Add Bootstrap JS and Popper.js CDN links -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
     <!-- Footer -->
-    <footer>
+    <footer class="bg-primary text-white">
         &copy; 2023 Created by Antariksh Ramesh
     </footer>
 </body>
 </html>
-
-
-
 
